@@ -143,6 +143,24 @@ TEST(DivideTest,DividingWithZero){
        EXPECT_EQ(result,0);
 }
 
+TEST(OPTest, OPZero){
+	Op* test = new Op(0);
+	EXPECT_EQ(test->evaluate(), 0);
+    EXPECT_EQ (test->stringify(), "0.000000");
+}
+
+TEST(OpTest, OpEvaluatePositiveWhole) {
+    Op* test = new Op(8);
+    EXPECT_EQ(test->evaluate(), 8);
+    EXPECT_EQ(test->stringify(), "8.000000");
+}
+
+TEST(OpTest, OpNegativeWhole) {
+    Op* test = new Op(-12);
+    EXPECT_EQ(test->evaluate(), -12);
+    EXPECT_EQ(test->stringify(), "-12.000000");
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

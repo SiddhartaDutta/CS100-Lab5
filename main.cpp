@@ -22,5 +22,14 @@ int main() {
     Base* minus = new Sub(add, two);
 
     std::cout << minus->stringify() << " = " << minus->evaluate() << std::endl;
+
+	delete three;
+	delete seven;
+	delete four;
+	delete two;
+	delete mult;
+	delete add;
+	delete minus;
+
     return 0;
 }

@@ -9,6 +9,7 @@
 
 #include "rand.hpp"
 #include "mult.hpp"
+#include "div.hpp"
 
 TEST(RandTest, RandEvaluate){
 	Rand* test = new Rand();
@@ -40,6 +41,29 @@ TEST(MultTest,MultiplyingWithZero){
 
 }
 
+TEST(DivideTest,DividingBySameNum){
+       Base* dividend = new NegativeOPMock();
+       Base* divisor = new NegativeOPMock();
+       Base* divide = new Div(dividend,divisor);
+       double result = divide->evaluate();
+       EXPECT_EQ(result,1);
+}
+
+TEST(DivideTest,DividingByDifNum){
+       Base* dividend = new HalfOPMock();
+       Base* divisor = new NineOPMock();
+       Base* divide = new Div(dividend,divisor);
+       double result = divide->evaluate();
+       EXPECT_EQ(result,18);
+}
+
+TEST(DivideTest,DividingWithZero){
+       Base* dividend = new NineOPMock();
+       Base* divisor = new ZeroOPMock();
+       Base* divide = new Div(dividend,divisor);
+       double result = divide->evaluate();
+       EXPECT_EQ(result,0);
+}
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

@@ -1,5 +1,5 @@
-#ifndef __ZEROOPMOCK_HPP__
-#define __ZEROOPMOCK_HPP__
+#ifndef __NINEOPMOCK_HPP__
+#define __NINEOPMOCK_HPP__
 
 #include "base.hpp"
 
